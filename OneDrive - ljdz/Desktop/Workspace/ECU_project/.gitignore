@@ -1,0 +1,16 @@
+# Bỏ qua các file và thư mục liên quan đến IDE
+.vscode/
+.idea/
+
+# Bỏ qua thư mục build và các file thực thi
+build/
+*.exe
+*.o
+*.bin
+
+# Bỏ qua các file nhật ký
+*.log
+
+# Bỏ qua các file cấu hình tạm thời của hệ điều hành
+.DS_Store
+Thumbs.db
