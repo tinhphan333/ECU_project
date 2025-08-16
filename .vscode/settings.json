@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "string": "cpp",
+        "csv_io.h": "c",
+        "stdio.h": "c",
+        "stdlib.h": "c",
+        "stdint.h": "c",
+        "random": "cpp",
+        "array": "cpp",
+        "string_view": "cpp",
+        "span": "cpp",
+        "dio.h": "c",
+        "pwm.h": "c",
+        "adc.h": "c",
+        "can.h": "c"
+    }
+}
