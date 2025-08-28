@@ -12,6 +12,7 @@
         "dio.h": "c",
         "pwm.h": "c",
         "adc.h": "c",
-        "can.h": "c"
+        "can.h": "c",
+        "com.h": "c"
     }
 }

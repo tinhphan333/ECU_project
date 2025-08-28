@@ -10,16 +10,11 @@
 #ifndef CAN_H
 #define CAN_H
 
-#include "csvlib/csv_io.h" // sử dụng hàm để đọc chuỗi từ file CSV
-#include <stdint.h>        // sử dụng kiểu dữ liệu uint32_t, uint8_t
-#include <stdio.h>         // sử dụng hàm printf để in thông báo
-#include <string.h>        // sử dụng hàm làm viec với chuỗi như strcpy, strtok
-
-typedef enum
-{
-    E_OK,    // Trả về khi hàm thực hiện thành công
-    E_NOT_OK // Trả về khi có lỗi xảy ra
-} Std_ReturnType;
+#include "csvlib/csv_io.h"     // sử dụng hàm để đọc chuỗi từ file CSV
+#include <stdint.h>            // sử dụng kiểu dữ liệu uint32_t, uint8_t
+#include <stdio.h>             // sử dụng hàm printf để in thông báo
+#include <string.h>            // sử dụng hàm làm viec với chuỗi như strcpy, strtok
+#include "CAN_STACK/CanType.h" // Thư viện chứa các kiểu dữ liệu cho CAN
 
 /**
  * @brief Hàm khởi giao tiếp CAN.
