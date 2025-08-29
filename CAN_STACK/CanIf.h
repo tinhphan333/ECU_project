@@ -13,6 +13,8 @@
 /**
  * @brief Hàm nhận dữ liệu từ CAN Driver và gửi lên lớp PduR.
  * @param canId ID của gói tin CAN.
+ * @param data Con trỏ đến dữ liệu nhận được.
+ * @param dlc Độ dài của gói dữ liệu nhận được.
  * @return Trả về E_OK nếu thành công, E_NOT_OK nếu có lỗi xảy ra.
  */
 Std_ReturnType CanIf_Receive(uint32_t canId, uint8_t *data, uint8_t dlc);

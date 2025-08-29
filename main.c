@@ -1,25 +1,27 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "csvlib/csv_io.h"
-#include "MCAL/Dio/Dio.h"
-#include "MCAL/Pwm/Pwm.h"
-#include "MCAL/Adc/Adc.h"
+// #include "csvlib/csv_io.h"
+// #include "MCAL/Dio/Dio.h"
+// #include "MCAL/Pwm/Pwm.h"
+// #include "MCAL/Adc/Adc.h"
 #include "MCAL/Can/Can.h"
+#include "CAN_STACK/CanIf.h"
+#include "CAN_STACK/Com.h"
+#include "CAN_STACK/PduR.h"
 
 // can,0x3F0 8 03 8B 26 00 00 00 00 00
 int main()
 {
-    uint32_t Canid;
+    // 1. Đọc & parse frame CAN từ CSV
+    uint32_t canId;
     uint8_t data[8];
     uint8_t dlc;
-
-    Can_Receive(&Canid, data, &dlc);
-    printf("Can: %x ", Canid);
-    printf("%d ", dlc);
-    for (int i = 0; i < 8; i++)
+    if (Can_Receive(&canId, data, &dlc) == E_OK)
     {
-        printf("%x ", data[i]);
+        // 2. Gửi lên CanIf (đóng gói: id + data)
+        CanIf_Receive(canId, data, dlc); // -> PduR_RouteReceive ->
+        Com_Indication(canId, data, dlc);
     }
-    return 0;
+    // 3. Ứng dụng nghiệp vụ lấy tốc độ động cơ
+    uint16_t engineRpm;
+    Com_ReceiveEngineSpeed(&engineRpm);
+    printf("Tốc độ động cơ nhận từ CAN = %u vòng/phút\n", engineRpm);
 }

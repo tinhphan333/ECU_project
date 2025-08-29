@@ -12,9 +12,6 @@
 
 Std_ReturnType PduR_RouteReceive(PduIDType pduId, PduInfoType *pduInfo)
 {
-    if (Com_Indication(pduId, pduInfo->data, pduInfo->length) == E_OK)
-    {
-        return E_OK;
-    }
-    return E_NOT_OK;
+    Com_Indication(pduId, pduInfo->data, pduInfo->length);
+    return E_OK;
 }
